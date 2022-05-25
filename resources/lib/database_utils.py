@@ -8,7 +8,7 @@ def ReadUsers(prompt):
     for row in cur.execute(f'SELECT * FROM user_table;'):
         for value in row:
             if prompt.lower() in value.lower():
-                return value
+                return row
 
     con.close()
 
