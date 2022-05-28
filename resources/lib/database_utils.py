@@ -1,14 +1,6 @@
 import sqlite3
 
 
-class User:
-    def __init__(self, username, reason, game, date):
-        self.username = username
-        self.reason = reason
-        self.game = game
-        self.date = date
-
-
 def ReadUsers(prompt):
     con = sqlite3.connect('lib/the_list.db')
     cur = con.cursor()
