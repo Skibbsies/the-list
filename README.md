@@ -6,6 +6,8 @@ This project has the intended use of being an assistant in games, where you enco
 
 **See planned updates [here](https://trello.com/b/SuJFZiqZ/the-list).**
 
+## If you're cloning an updated version of the repo, make sure you transpose databases. The database within this repo is blank.
+
 # Installation
 
 For linux users, installation is really easy.
