@@ -1,6 +1,6 @@
 import sys
 
-sys.path.append('../')
+sys.path.append('../')  # Handles PATH references relative to the virtualenv
 
 from lib import database_utils
 from datetime import date
@@ -10,7 +10,7 @@ import PySimpleGUI as sg
 sg.theme('Black')
 
 
-layout = [
+layout = [  # Window layout
         [sg.Text('username', size=(15, 1)), sg.InputText(size=(20), key='username-field')],
         [sg.Text('reason', size=(15,1)), sg.InputText(size=(20), key='reason-field')],
         [sg.Text('game', size=(15, 1)), sg.InputText(size=(20), key='game-field')],
@@ -29,9 +29,9 @@ while True:
 
     if event == sg.WIN_CLOSED:
         break
-    if event == 'custom-date':
+    if event == 'custom-date':  # Radio toggles
         window['date-field'].update(disabled=False)
-    if event == 'current-date':
+    if event == 'current-date': # Radio toggles
         window['date-field'].update(disabled=True)
     if event == 'add-user':
         if values['current-date'] == True:
@@ -53,10 +53,10 @@ while True:
         ]
 
         for key in keys_to_clear:
-            key.update('')
+            key.update('')  # Manually clear to avoid clearing after _ANY_ button press
     if event == 'check-db':
         matches = database_utils.ReadUsers(values)
-        sg.popup(matches, any_key_closes=True, auto_close=True, title='Database Matches')
+        sg.popup(matches, any_key_closes=True, auto_close=True, title='Database Matches')   # TO-DO: Nicer way of displaying returned values
 
 
 window.close()
